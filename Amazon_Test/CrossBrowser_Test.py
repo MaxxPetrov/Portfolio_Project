@@ -30,7 +30,6 @@ class ChromeSearch(unittest.TestCase):
         driver = self.driver
         driver.get(HP.main_url)
         time.sleep(3)
-        wait = WebDriverWait(driver, 3)
         HP.assert_title(driver, "Amazon.com. Spend less. Smile more.")
 
         driver.find_element(By.XPATH, "//a[@id='nav-link-accountList']").click()

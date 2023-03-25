@@ -1,20 +1,25 @@
-import random
 import time
-from telnetlib import EC
+import random
+import driver
 import requests
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, NoSuchWindowException
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver import Keys, ActionChains
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from webdriver_manager.core import driver
+from faker import Faker
+from selenium.webdriver import ActionChains
 
-df = driver.find_element
 
 main_url = "https://www.amazon.com/"
 from selenium.webdriver.support import expected_conditions as EC
 
 
-def check_API_code(driver, url):
-    code = requests.get(url).status_code
+def check_API(driver):
+    code = requests.get(driver.current_url).status_code
     if code == 200:
-        print("Url has ", requests.get(url).status_code, " as status Code")
+        print("Url has ", requests.get(driver.current_url).status_code, " as Status Code")
     else:
         print("API response code is not 200")
 
