@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "ace34400-d31c-415b-981f-c7511cacc783",
+		"name": "NASA Image and Video Library",
+		"description": "# NASA Image and Video Library\n\nAPI to access the NASA Image and Video Library site at images.nasa.gov\n\nUse this API to access the NASA Image and Video Library site at <a href=\"https://images.nasa.gov/#/\">images.nasa.gov</a>. \n\nFor the latest documentation, please go <a href=\"https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf\">here</a>.The images.nasa.gov API is organized\naround REST, has predictable/resource­-oriented URLs and uses HTTP response codes to indicate API errors. This API uses\nbuilt-­in HTTP features such as HTTP authentication and HTTP verbs, which are understood by many off-­the-­shelf HTTP\nclients. Please note that JSON is returned by all API responses, including errors. Each of the endpoints described below\nalso contains example snippets which use the curl command­-line tool, Unix pipelines, and the python command­-line tool\nto output API responses in an easy­ to ­read format.\n\n## Available Endpoints\n\nThe images API contains 4 endpoints \n\n<code class=\"prettyprint\"> GET https://images-api.nasa.gov </code>\n\n\n### Endpoints\n\n<table>\n    <thead>\n        <tr>\n            <th>Endpoint</th>\n            <th>Description</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <th>GET /search?q={q}</th>\n            <th>Performing a search</th>\n        </tr>\n        <tr>\n            <th>GET /asset/{nasa_id}</th>\n            <th>Retrieving a media asset’s manifest</th>\n        </tr>\n        <tr>\n            <th>GET /metadata/{nasa_id}</th>\n            <th>Retrieving a media asset’s metadata location</th>\n        </tr>\n        <tr>\n            <th>GET /captions/{nasa_id}</th>\n            <th>Retrieving a video asset’s captions location</th>\n        </tr>\n    </tbody>\n</table> \n\nFor complete usage information and detailed examples, please visit the\n<a href=\"https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf\">\n    NASA Image and Video Library API documentation\n</a>.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26310375"
+	},
+	"item": [
+		{
+			"name": "Search",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://images-api.nasa.gov/search?q=mars",
+					"protocol": "https",
+					"host": [
+						"images-api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "mars"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asset",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_KEY}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://images-api.nasa.gov/asset/as11-40-5874",
+					"protocol": "https",
+					"host": [
+						"images-api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"asset",
+						"as11-40-5874"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Metadata",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_KEY}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://images-api.nasa.gov/metadata/as11-40-5874",
+					"protocol": "https",
+					"host": [
+						"images-api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"metadata",
+						"as11-40-5874"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Captions",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_KEY}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://images-api.nasa.gov/captions/as11-40-5874",
+					"protocol": "https",
+					"host": [
+						"images-api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"captions",
+						"as11-40-5874"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "22cfdac7-23bc-4f46-94ba-de3e300ed00f",
+		"name": "EONET",
+		"description": "# EONET\n\nThe Earth Observatory Natural Event Tracker \n\nMore and more NASA imagery is being made available via web services (WMS, WMTS, etc.) and a significant percentage of it is being produced and published in near real time (NRT=within a few hours after acquisition)\n\nThis ability means that NASA imagery can be used more routinely to examine current natural events as they happen.Using client applications, such as <a href=\"https://worldview.earthdata.nasa.gov/\">NASA EOSDIS’ Worldview</a>, users can browse the entire globe daily and look for natural events as they occur\n\nStorms are regularly spotted in the tropics, dust storms over deserts, forest fires in the summers. These events are occurring constantly and NASA NRT imagery can represent them all using a variety of different data parameters. However, the user’s experience is tailored, and therefore restricted, by the client application\n\nWhat if there was an API that provided a curated list of natural events and provided a way to link those events to event-related NRT image layers? Enter EONET.The Earth Observatory Natural Event Tracker (EONET) is a prototype web service with the goal \nof:providing a curated source of continuously updated natural event metadata; providing a service that links those natural events to thematically-related web service-enabled image sources (e.g., via WMS, WMTS, etc.)\n\nPlease see our <a href=\"https://eonet.sci.gsfc.nasa.gov/docs/v3\">API documentation</a> to learn more about how to use the EONET web services.Development of EONET began in 2015 and has been supported by <a href=\"http://earthobservatory.nasa.gov/\">NASA’s Earth Observatory</a> and <a href=\"https://earthdata.nasa.gov/about/esdis-project\">Earth Science Data and Information System (ESDIS) Project</a>.\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26310375"
+	},
+	"item": [
+		{
+			"name": "Events",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_KEY}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://eonet.sci.gsfc.nasa.gov/api/v3/events?limit=5&days=20&source=InciWeb&status=open",
+					"protocol": "https",
+					"host": [
+						"eonet",
+						"sci",
+						"gsfc",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"api",
+						"v3",
+						"events"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "days",
+							"value": "20"
+						},
+						{
+							"key": "source",
+							"value": "InciWeb"
+						},
+						{
+							"key": "status",
+							"value": "open"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Events (GeoJSON)",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_KEY}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://eonet.sci.gsfc.nasa.gov/api/v3/events/geojson?limit=5&days=20&source=InciWeb&status=open",
+					"protocol": "https",
+					"host": [
+						"eonet",
+						"sci",
+						"gsfc",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"api",
+						"v3",
+						"events",
+						"geojson"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "days",
+							"value": "20"
+						},
+						{
+							"key": "source",
+							"value": "InciWeb"
+						},
+						{
+							"key": "status",
+							"value": "open"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Categories",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_KEY}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://eonet.sci.gsfc.nasa.gov/api/v3/categories",
+					"protocol": "https",
+					"host": [
+						"eonet",
+						"sci",
+						"gsfc",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"api",
+						"v3",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Layers",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_KEY}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://eonet.sci.gsfc.nasa.gov/api/v3/layers",
+					"protocol": "https",
+					"host": [
+						"eonet",
+						"sci",
+						"gsfc",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"api",
+						"v3",
+						"layers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
