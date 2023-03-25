@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "b13d30f7-4019-4896-9c53-13ab14bee873",
+		"name": "Exoplanet",
+		"description": "# Exoplanet Archive\n\nProgrammatic access to NASA's Exoplanet Archive database\n\n## Introduction\n\nThe Exoplanet Archive API allows programatic access to\n<a href=\"https://exoplanetarchive.ipac.caltech.edu/index.html\">NASA's Exoplanet Archive</a>\ndatabase. This API contains a ton of options so to get started please visit\n<a href=\"https://exoplanetarchive.ipac.caltech.edu/docs/program_interfaces.html\">this page</a>\nfor introductory materials. To see\n<a href=\"https://exoplanetarchive.ipac.caltech.edu/docs/data.html\">what data</a>\nis available in this API\n<a href=\"https://exoplanetarchive.ipac.caltech.edu/docs/program_interfaces.html#data\">visit here</a>\nand also be sure to check out\n<a href=\"https://exoplanetarchive.ipac.caltech.edu/docs/program_interfaces.html#troubleshoot\">best-practices and\n    troubleshooting</a>\nin case you get stuck. \n\nHappy planet hunting!\n\n\n<img\n    src=\"https://exoplanetarchive.ipac.caltech.edu/images/news/news-image-generic-transit.jpg\" />\n\n## Example Queries\n\n<table>\n    <thead>\n        <tr>\n            <th style=\"text-align: left\">Example API</th>\n            <th style=\"text-align: left\">URL</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr valign=\"top\">\n            <td style=\"text-align: left\">\n                <a\n                    href=\"https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?&table=exoplanets&format=ipac&where=pl_kepflag=1\">Confirmed\n                    planets in the Kepler field\n                </a>\n            </td>\n            <td style=\"text-align: left\">\n                <a\n                    href=\"https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?&table=exoplanets&format=ipac&where=pl_kepflag=1\">https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?&table=exoplanets&format=ipac&where=pl_kepflag=1</a>\n            </td>\n        </tr>\n        <tr valign=\"top\">\n            <td style=\"text-align: left\">\n                <a\n                    href=\"https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?&table=exoplanets&format=ipac&where=pl_tranflag=1\">Confirmed\n                    planets that transit their host stars\n                </a>\n            </td>\n            <td style=\"text-align: left\">\n                <a\n                    href=\"https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?&table=exoplanets&format=ipac&where=pl_tranflag=1\">https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?&table=exoplanets&format=ipac&where=pl_tranflag=1</a>\n            </td>\n        </tr>\n        <tr valign=\"top\">\n            <td style=\"text-align: left\">\n                <a\n                    href=\"https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=cumulative&where=koi_prad<2 and koi_teq>180 and koi_teq<303 and koi_disposition like 'CANDIDATE'\">All\n                    planetary candidates smaller than 2Re with equilibrium\n                    temperatures between 180-303K</a>\n            </td>\n            <td style=\"text-align: left\">\n                <a\n                    href=\"https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=cumulative&where=koi_prad<2 and koi_teq>180 and koi_teq<303 and koi_disposition like 'CANDIDATE'\">https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=cumulative&where=koi_prad\n                    <2 and koi_teq>180 and koi_teq<303 and koi_disposition like 'CANDIDATE' </a>\n            </td>\n        </tr>\n    </tbody>\n</table>\n\n\n<a href=\"https://exoplanetarchive.ipac.caltech.edu/docs/API_queries.html\">More examples here.</a>",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26310375"
+	},
+	"item": [
+		{
+			"name": "Exoplanet",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_KEY}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&format=json&where=pl_kepflag=1&select&count&colset&order&ra=&dec&radius&aliastable",
+					"protocol": "https",
+					"host": [
+						"exoplanetarchive",
+						"ipac",
+						"caltech",
+						"edu"
+					],
+					"path": [
+						"cgi-bin",
+						"nstedAPI",
+						"nph-nstedAPI"
+					],
+					"query": [
+						{
+							"key": "table",
+							"value": "exoplanets"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						},
+						{
+							"key": "where",
+							"value": "pl_kepflag=1"
+						},
+						{
+							"key": "select",
+							"value": null
+						},
+						{
+							"key": "count",
+							"value": null
+						},
+						{
+							"key": "colset",
+							"value": null
+						},
+						{
+							"key": "order",
+							"value": null
+						},
+						{
+							"key": "ra",
+							"value": ""
+						},
+						{
+							"key": "dec",
+							"value": null
+						},
+						{
+							"key": "radius",
+							"value": null
+						},
+						{
+							"key": "aliastable",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
