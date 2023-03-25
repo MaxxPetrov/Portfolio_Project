@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "0323574b-ca80-477a-8d88-da785345a742",
+		"name": "Insight",
+		"description": "<h1 id=\"insight_weather\">InSight: Mars Weather Service API</h1>\n\n\n(Last Updated: 8/28/2019)NASA’s InSight Mars lander takes\ncontinuous weather measurements (temperature, wind, pressure) on the surface of Mars at Elysium Planitia, a flat, smooth\nplain near Mars’ equator. Summaries of these data are available at <a\n    href=\"https://mars.nasa.gov/insight/weather/\">https://mars.nasa.gov/insight/weather/</a>.This API provides per-Sol\nsummary data for each\nof the last seven available Sols (Martian Days). As more data from a particular Sol are downlinked from the spacecraft\n(sometimes several days later), these values are recalculated, and consequently may change as more data are received on\nEarth.** Example image: **<img src=\"assets/img/general/insight_photo.png\" />This API is maintained and provided by NASA\nJet Propulsion Laboratory and Cornell University. If you find bugs in this API, please use\nthe contact form found at <a href=\"https://mars.nasa.gov/feedback/\">https://mars.nasa.gov/feedback/</a>. The rate limit\nfor this API is every hour no more than 2000 hits for each individual IP.###Defining the DataThe summary\ndata are provided as an object in a JSON stream, a formal definition of JSON is <a\n    href=\"https://tools.ietf.org/html/rfc7159\">RFC 7159</a>. Appendix A contains an abridged, typical JSON stream for\nthis API as an example.<h3 id=\"http-request\">HTTP Request</h3><code\n    class=\"prettyprint\">GET https: //api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0</code>\n\n<h3 id=\"query-parameters\">Query Parameters</h3>\n\n<table>\n    <thead>\n        <tr>\n            <th>Parameter</th>\n            <th>Type</th>\n            <th>Default</th>\n            <th>Description</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>version</td>\n            <td>float</td>\n            <td>* 1.0 *</td>\n            <td>The version of this API</td>\n        </tr>\n        <tr>\n            <td>feedtype</td>\n            <td>string</td>\n            <td>json</td>\n            <td>The format of what is returned. Currently the default is JSON and only JSON works.</td>\n        </tr>\n        <tr>\n            <td>api_key</td>\n            <td>string</td>\n            <td>DEMO_KEY</td>\n            <td>api.data.gov key for expanded usage</td>\n        </tr>\n    </tbody>\n</table>\n\n<h3 id=\"example-query\">Example query</h3>\n\n<a href=\"https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0\"><code class=\"prettyprint\">https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0</code></a>\n        \n<a href=\"./assets/insight/InSight%20Weather%20API%20Documentation.pdf\">This document</a> describes the API in more detail.\n\n<a href=\"./assets/insight/insight_mars_wind_rose.html\">This self-contained HTML document</a> is an example\nthat draws a wind rose using InSight Wind Direction frequency distribution data, which data are part of the JSON object\nreturned by this API.\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26310375"
+	},
+	"item": [
+		{
+			"name": "Insight",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_KEY}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.nasa.gov/insight_weather/?feedtype=json&ver=1.0",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"insight_weather",
+						""
+					],
+					"query": [
+						{
+							"key": "feedtype",
+							"value": "json"
+						},
+						{
+							"key": "ver",
+							"value": "1.0"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

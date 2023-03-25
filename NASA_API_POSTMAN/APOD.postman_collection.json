@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "125f35e6-d0cb-4c30-885d-c239a5c8b3d8",
+		"name": "APOD",
+		"description": "\n# APOD \n\nOne of the most popular websites at NASA is the [Astronomy Picture of the Day](http://apod.nasa.gov/apod/astropix.html).\n\nIn fact, this website is one of the [most popular websites](https://analytics.usa.gov) across all federal agencies. It has the popular appeal of a Justin Bieber video. This endpoint structures the APOD imagery and associated metadata so that it can be repurposed for other applications. In addition, if the `concept_tags` parameter is set to `True`, then keywords derived from the image explanation are returned. These keywords could be used as auto-generated hashtags for twitter or instagram feeds; but generally help with discoverability of relevant imagery. The full documentation for this API can be found in the [APOD API Github repository](https://github.com/nasa/apod-api).\n\n\n### HTTP Request \n`GET https://api.nasa.gov/planetary/apod` \n\n**concept_tags are now disabled in this service. Also, an optional return parameter _copyright_ is returned if the image is not public domain.** \n\n\n### Query Parameters\n\n<table>\n\n<thead>\n\n<tr>\n\n<th>Parameter</th>\n\n<th>Type</th>\n\n<th>Default</th>\n\n<th>Description</th>\n\n</tr>\n\n</thead>\n\n<tbody>\n\n<tr>\n\n<td>date</td>\n\n<td>YYYY-MM-DD</td>\n\n<td>_today_</td>\n\n<td>The date of the APOD image to retrieve</td>\n\n</tr>\n\n<tr>\n\n<td>start_date</td>\n\n<td>YYYY-MM-DD</td>\n\n<td>none</td>\n\n<td>The start of a date range, when requesting date for a range of dates. Cannot be used with `date`.</td>\n\n</tr>\n\n<tr>\n\n<td>end_date</td>\n\n<td>YYYY-MM-DD</td>\n\n<td>_today_</td>\n\n<td>The end of the date range, when used with `start_date`.</td>\n\n</tr>\n\n<tr>\n\n<td>count</td>\n\n<td>int</td>\n\n<td>none</td>\n\n<td>If this is specified then `count` randomly chosen images will be returned. Cannot be used with `date` or `start_date` and `end_date`.</td>\n\n</tr>\n\n<tr>\n\n<td>thumbs</td>\n\n<td>bool</td>\n\n<td>False</td>\n\n<td>Return the URL of video thumbnail. If an APOD is not a video, this parameter is ignored.</td>\n\n</tr>\n\n<tr>\n\n<td>api_key</td>\n\n<td>string</td>\n\n<td>DEMO_KEY</td>\n\n<td>api.nasa.gov key for expanded usage</td>\n\n</tr>\n\n</tbody>\n\n</table>\n\n### Example query [`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`](https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY)</div>\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26310375"
+	},
+	"item": [
+		{
+			"name": "Astronomy picture of the day",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `",
+							"    <h1>Picture of the Day</h1>",
+							"    <hr/>",
+							"    <h2> {{response.title}} </h2>",
+							"    <h3> {{response.date}} </h3>",
+							"    <p> {{response.explanation}} </p>",
+							"    <img src=\"{{response.url}}\">",
+							"    <hr/>",
+							"    {{#if response.length}}",
+							"    {{#each response}}",
+							"        <h2> {{title}} </h2>",
+							"        <h3> {{date}} </h3>",
+							"        <p> {{explanation}} </p>",
+							"        <img src=\"{{url}}\">",
+							"        <hr/>",
+							"    {{/each}}",
+							"    {{/if}}",
+							"`;",
+							"",
+							"console.log(pm.response.json())",
+							"",
+							"// Set visualizer",
+							"pm.visualizer.set(template, {",
+							"    // Pass the response body parsed as JSON as `data`",
+							"    response: pm.response.json()",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_KEY}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.nasa.gov/planetary/apod?date=&start_date=&end_date=&count=&thumbs",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"planetary",
+						"apod"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": ""
+						},
+						{
+							"key": "start_date",
+							"value": ""
+						},
+						{
+							"key": "end_date",
+							"value": ""
+						},
+						{
+							"key": "count",
+							"value": ""
+						},
+						{
+							"key": "thumbs",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

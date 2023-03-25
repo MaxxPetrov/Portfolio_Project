@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "7fff885d-e119-419f-bcd7-7fcaae4c2ab7",
+		"name": "Asteroids NeoWs",
+		"description": "## Asteroids - NeoWs\n\nNeoWs (Near Earth Object Web Service) is a RESTful web service for near earth Asteroid information. With NeoWs a user can: search for Asteroids based on their closest approach date to Earth, lookup a specific Asteroid with its NASA JPL small body id, as well as browse the overall data-set.Data-set: All the data is from the NASA JPL Asteroid team (<http://neo.jpl.nasa.gov/).This> API is maintained by <a href=\"https://github.com/SpaceRocks/\">SpaceRocks Team: David Greenfield, Arezu Sarvestani, Jason English and Peter Baunach</a>.\n\n## Neo - Feed\n\nRetrieve a list of Asteroids based on their closest approach date to Earth. <code class=\"prettyprint\"> GET <https://api.nasa.gov/neo/rest/v1/feed?start_date=START_DATE&end_date=END_DATE&api_key=API_KEY> </code>\n\n### Query Parameters\n\n<table> <thead> <tr> <th>Parameter</th> <th>Type</th> <th>Default</th> <th>Description</th> </tr></thead> <tbody> <tr> <td>start_date</td><td>YYYY-MM-DD</td><td>none</td><td>Starting date for asteroid search</td></tr><tr> <td>end_date</td><td>YYYY-MM-DD</td><td>7 days after start_date</td><td>Ending date for asteroid search</td></tr><tr> <td>api_key</td><td>string</td><td>DEMO_KEY</td><td>api.nasa.gov key for expanded usage</td></tr></tbody></table>\n\n### Example query\n\n<a href=\"https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&amp;end_date=2015-09-08&amp;api_key=DEMO_KEY\"> <code class=\"prettyprint\"> https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&amp;end_date=2015-09-08&amp;api_key=DEMO_KEY </code> </a>\n\n## Neo - Lookup\n\nLookup a specific Asteroid based on its <a href=\"http://ssd.jpl.nasa.gov/sbdb_query.cgi\">NASA JPL small body (SPK-ID) ID</a> <code class=\"prettyprint\"> GET <https://api.nasa.gov/neo/rest/v1/neo/> <Asteroid_ID> </code>\n\n### Path Parameters\n\n<table>\n<thead> <tr> <th>Parameter</th> <th>Type</th> <th>Default</th> <th>Description</th> </tr></thead> <tbody> <tr> <th>asteroid_id</th> <th>int</th> <th>none</th> <th>Asteroid SPK-ID correlates to the NASA JPL small body</th> </tr><tr> <td>api_key</td><td>string</td><td>DEMO_KEY</td><td>api.nasa.gov key for expanded usage</td></tr></tbody>\n</table>\n\n### Example query\n\n<a href=\"https://api.nasa.gov/neo/rest/v1/neo/3542519?api_key=DEMO_KEY\"> <code class=\"prettyprint\"> <https://api.nasa.gov/neo/rest/v1/neo/3542519?api_key=DEMO_KEY> </code> </a>\n\n## Neo - Browse\n\nBrowse the overall Asteroid data-set <code class=\"prettyprint\"> GET <https://api.nasa.gov/neo/rest/v1/neo/browse/> </code>\n\n### Example query\n\n<a href=\"https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=DEMO_KEY\"> <code class=\"prettyprint\"> <https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=DEMO_KEY> </code> </a>\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26310375"
+	},
+	"item": [
+		{
+			"name": "Asteroids NeoWs",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API_KEY}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.nasa.gov/neo/rest/v1/feed?start_date={{START_DATE}}&end_date={{END_DATE}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"neo",
+						"rest",
+						"v1",
+						"feed"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "{{START_DATE}}"
+						},
+						{
+							"key": "end_date",
+							"value": "{{END_DATE}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
